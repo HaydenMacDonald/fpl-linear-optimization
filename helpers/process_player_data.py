@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from helpers.select_team import select_team
 
 def process_player_data(players):
@@ -6,10 +7,13 @@ def process_player_data(players):
     columns = ['web_name', 'total_points', 'team_code', 'element_type', 'price']
     df = pd.DataFrame(players, columns = columns)
 
-    df["imputed_total_points"] = df.groupby("element_type")["total_points"].transform(lambda x: x.fillna(x.mean()))
-    #df["imputed_total_points"] = df.groupby("element_type")["total_points"].transform(lambda x : x.mean() if x == 0 else x)
+    df['total_points'] = df['total_points'].replace(0, np.nan)
+    df['total_points']=df['total_points'].fillna(df.groupby('element_type')['total_points'].transform('mean'))
+    #df["imputed_total_points"] = df.groupby("element_type")["total_points"].transform(lambda x: x.fillna(x.mean()))
+
+    print(df[df['web_name']=='Toney'])
     
-    expected_scores = df["imputed_total_points"]  # total points from last season
+    expected_scores = df["total_points"]  # total points from last season
     prices = df["price"]
     positions = df["element_type"]
     clubs = df["team_code"]
