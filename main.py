@@ -13,7 +13,7 @@ def main():
     data_file = f'.\data\json\players-{date.today()}.json'
 
     ## If data doesn't exist, get it
-    if os.path.isfile(data_file):
+    if not os.path.isfile(data_file):
         players = asyncio.get_event_loop().run_until_complete(get_player_data(include_summary=True, return_json=True))
         write_player_data(players, f'.\data\json\players-{date.today()}.json')
 
