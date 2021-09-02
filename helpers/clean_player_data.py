@@ -11,6 +11,12 @@ def clean_player_data(data_file):
 
         for player in data:
 
+            ## Extract player code
+            if player['code'] is not None:
+                player_code = player['code']
+            else:
+                player_code = None
+
             ## Extract last name
             if player['web_name'] is not None:
                 web_name = player['web_name']
@@ -42,7 +48,7 @@ def clean_player_data(data_file):
                 price = 100
             
             ## Append data to batch list
-            players.append([web_name, total_points, team_code, element_type, price])
+            players.append([player_code, web_name, total_points, team_code, element_type, price])
 
     write_player_data(players, f'.\data\cleaned\players-{date.today()}.json')
 
