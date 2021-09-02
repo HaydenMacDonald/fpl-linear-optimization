@@ -1,13 +1,14 @@
+import pandas as pd
+import numpy as np
 from helpers.transfers import MultiHorizonTransferOptimiser
 
 def transfer_optimization(current_team, data_file, analysis):
     
     ## Parse data_file
     names = data_file
-    
-    # clubs = ...
-    # positions = ...
-    # expected_scores = 
+    clubs = data_file
+    positions = data_file
+    expected_scores = data_file
 
     # Parse current squad
     # current_squad_indices = ...
