@@ -3,6 +3,8 @@ import numpy as np
 from helpers.transfers import MultiHorizonTransferOptimiser
 
 def transfer_optimization(current_team, data_file, analysis):
+
+    ## TODO: correctly parse current_team and data_file
     
     ## Parse data_file
     names = data_file
@@ -20,8 +22,12 @@ def transfer_optimization(current_team, data_file, analysis):
     # buy_prices = 
     # sell_prices = 
 
+    ## Introduce one week transfer method
+    if analysis == "transfer":
+        pass
     
-    if analysis == "multitransfer":
+    ## Multitransfer horizon method
+    elif analysis == "multitransfer":
         HORIZON = 4
         multi_score_forecast = pd.DataFrame({"week_{}".format(i): df["total_points"] / 38 for i in range(HORIZON)})
         multi_score_forecast.head()
