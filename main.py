@@ -9,7 +9,7 @@ from helpers.process_player_data import process_player_data
 from helpers.transfer_optimization import transfer_optimization
 from datetime import date
 
-def main(analysis):
+def main(analysis, season):
 
     if analysis == 'selection':
         ## Target data file
@@ -22,7 +22,9 @@ def main(analysis):
 
         ## Clean data
         players = clean_player_data(data_file)
-        process_player_data(players)
+
+        ## Process player data and run solver
+        process_player_data(players, season)
     
     elif analysis == 'transfer' or analysis == 'multitransfer':
         
@@ -46,6 +48,9 @@ if __name__ == "__main__":
     ## Parse endpoint argument
     parser.add_argument('--analysis', metavar = 'path', required = True, help = 'Whether to run selection analysis from scratch or a transfer analysis given an existing team')
 
+    ## Add argument to control whether to use previous season's total_points or current season's form as the expected_scores value
+    parser.add_argument('--season', metavar = 'path', required = False, help = 'Whether to run selection analysis on previous season total points or current season form')
+
     ## Parse arguments and input into main()
     args = parser.parse_args()
-    main(analysis = args.analysis)
+    main(analysis = args.analysis, season = args.season)

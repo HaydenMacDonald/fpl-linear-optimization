@@ -1,6 +1,4 @@
-import pandas as pd
 import json
-from datetime import date
 
 def write_player_data(data, file_path):
     
