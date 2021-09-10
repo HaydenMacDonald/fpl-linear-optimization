@@ -18,9 +18,8 @@ def process_player_data(players, season):
     ## If selecting based on last season, assign total_points to expected points
     if season == 'previous' or season is None:
         expected_scores = pd.Series([ x[0].get('total_points') for x in df['history_past']])
-        print(expected_scores)
     elif season == 'current':
-        expected_scores = df['form']
+        expected_scores = df['ep_next']
 
     ## Extract columns as series
     prices = df["price"]
