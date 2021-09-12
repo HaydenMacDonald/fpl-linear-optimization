@@ -1,43 +1,36 @@
-from helpers.process_player_data import process_player_data
-import os
 import asyncio
 import argparse
 from helpers.get_player_data import get_player_data
 from helpers.get_spi_data import get_spi_data
-
 from helpers.clean_player_data import clean_player_data
-from helpers.process_player_data import process_player_data
+from helpers.select_squad import select_squad
 from helpers.transfer_optimization import transfer_optimization
 from datetime import date
 
-def main(analysis, season):
+def main(analysis, season, budget):
 
     ## Get SPI Match data (local or remote)
-    spi_data = get_spi_data()
+    # spi_data = get_spi_data()
+
+    ## Get player data (local or remote)
+    players = asyncio.get_event_loop().run_until_complete(get_player_data())
+
+    ## Clean player data
+    players = clean_player_data(players)
 
     if analysis == 'selection':
-        
-        ## Get player data (local or remote)
-        players = asyncio.get_event_loop().run_until_complete(get_player_data(include_summary=True, return_json=True))
-
-        ## Clean player data
-        players = clean_player_data(players)
 
         ## Process player data and run solver
-        process_player_data(players, season)
+        select_squad(players, season)
     
     elif analysis == 'transfer' or analysis == 'multitransfer':
-        
-        ## Current team selection
-        current_team = f'.\data\json\selections\selection-{date.today()}.json'
 
-        ## Player data
-        data_file = f'.\data\json\players-{date.today()}.json';
-
-        if not os.path.isfile(current_team) or not os.path.isfile(data_file):
-            raise ValueError('Team data file not found')
+        ## Check for budget variable type
+        if budget is not None and isinstance(budget, str):
+            budget = float(budget)
         
-        transfers = transfer_optimization(current_team, data_file, analysis)
+        ## Run a transfer optimization analysis
+        transfer_optimization(budget, analysis)
 
 
 if __name__ == "__main__":
@@ -51,6 +44,9 @@ if __name__ == "__main__":
     ## Add argument to control whether to use previous season's total_points or current season's form as the expected_scores value
     parser.add_argument('--season', metavar = 'path', required = False, help = 'Whether to run selection analysis on previous season total points or current season form')
 
+    ## Add argument to control whether to use previous season's total_points or current season's form as the expected_scores value
+    parser.add_argument('--budget', metavar = 'path', required = False, help = 'Current budget leftover by a current squad selection')
+
     ## Parse arguments and input into main()
     args = parser.parse_args()
-    main(analysis = args.analysis, season = args.season)
+    main(analysis = args.analysis, season = args.season, budget = args.budget)

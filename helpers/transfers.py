@@ -42,8 +42,7 @@ class TransferOptimiser:
         decisions[indices] = 1
         return decisions
 
-    def apply_transfer_constraints(self, model, transfer_in_decisions_free, transfer_in_decisions,
-                                   transfer_out_decisions, budget_now):
+    def apply_transfer_constraints(self, model, transfer_in_decisions_free, transfer_in_decisions, transfer_out_decisions, budget_now):
         # only 1 free transfer
         model += sum(transfer_in_decisions_free) <= 1
 
@@ -61,16 +60,17 @@ class TransferOptimiser:
         transfer_in_decisions_free, transfer_in_decisions_paid, transfer_out_decisions, transfer_in_decisions, sub_decisions, captain_decisions = self.instantiate_decision_arrays()
 
         # calculate new team from current team + transfers
-        next_week_squad = current_squad_decisions + transfer_in_decisions - transfer_out_decisions
+        next_week_squad = [
+            current_squad_decisions[i] + transfer_in_decisions[i] - transfer_out_decisions[i]
+            for i in range(self.num_players)
+        ]
         starters = next_week_squad - sub_decisions
 
         # points penalty for additional transfers
         transfer_penalty = sum(transfer_in_decisions_paid) * 4
 
-        self.apply_transfer_constraints(model, transfer_in_decisions_free, transfer_in_decisions,
-                                        transfer_out_decisions, budget_now)
-        self.apply_formation_constraints(model, squad=next_week_squad, starters=starters,
-                                         subs=sub_decisions, captains=captain_decisions)
+        self.apply_transfer_constraints(model, transfer_in_decisions_free, transfer_in_decisions,transfer_out_decisions, budget_now)
+        self.apply_formation_constraints(model, squad=next_week_squad, starters=starters, subs=sub_decisions, captains=captain_decisions)
 
         # objective function:
         model += self.get_objective(starters, sub_decisions, captain_decisions, sub_factor, transfer_penalty, self.expected_scores), "Objective"

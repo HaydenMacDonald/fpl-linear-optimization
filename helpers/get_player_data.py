@@ -5,7 +5,7 @@ import os
 import json
 from helpers.write_player_data import write_player_data
 
-async def get_player_data(include_summary=True, return_json=True):
+async def get_player_data():
 
     ## Target data file
     data_file = f'.\data\json\players-{date.today()}.json'
@@ -18,7 +18,7 @@ async def get_player_data(include_summary=True, return_json=True):
             fpl = FPL(session)
 
             ## Fetch player data with async request
-            players = await fpl.get_players(include_summary=include_summary, return_json=return_json)
+            players = await fpl.get_players(include_summary=True, return_json=True)
 
             ## Write player data as json file
             write_player_data(players, data_file)
