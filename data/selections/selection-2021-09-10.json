@@ -9,12 +9,12 @@
         "buy_price":4.6
     },
     {
-        "code":82263,
-        "name":"Alonso",
+        "code":232787,
+        "name":"Gallagher",
         "expected_score":8,
         "rank":"player",
-        "club":8,
-        "position":2,
+        "club":31,
+        "position":3,
         "buy_price":5.7
     },
     {
@@ -63,12 +63,12 @@
         "buy_price":7.1
     },
     {
-        "code":74208,
-        "name":"Pogba",
+        "code":169187,
+        "name":"Alexander-Arnold",
         "expected_score":8,
         "rank":"player",
-        "club":1,
-        "position":3,
+        "club":14,
+        "position":2,
         "buy_price":7.7
     },
     {
