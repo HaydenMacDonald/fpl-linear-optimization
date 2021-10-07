@@ -13,7 +13,7 @@ async def get_player_data():
     ## If data doesn't exist, get it
     if not os.path.isfile(data_file):
         
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
             ## Instantiate session
             fpl = FPL(session)
 
