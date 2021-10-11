@@ -1,4 +1,3 @@
-import json
 from datetime import date
 from helpers.write_player_data import write_player_data
 
