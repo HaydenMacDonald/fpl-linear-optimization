@@ -4,16 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+aiohttp = "*"
+fpl = "*"
 pandas = "*"
 pulp = "*"
-numpy = "*"
-asyncio = "*"
-aiohttp = ">=3.7.4"
-fpl = "*"
-ipykernel = "*"
-urllib3 = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.9"

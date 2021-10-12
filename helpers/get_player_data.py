@@ -8,7 +8,7 @@ from helpers.write_player_data import write_player_data
 async def get_player_data():
 
     ## Target data file
-    data_file = f'.\data\json\players-{date.today()}.json'
+    data_file = f'./data/json/players-{date.today()}.json'
 
     ## If data doesn't exist, get it
     if not os.path.isfile(data_file):

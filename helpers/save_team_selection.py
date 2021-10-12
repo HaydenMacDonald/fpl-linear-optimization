@@ -29,4 +29,4 @@ def save_team_selection(path, data, decisions, sub_decisions, codes, names, expe
                              position = int(positions[i]), 
                              buy_price = prices[i]))
             
-    write_player_data(team, f'.\data\{path}\selection-{date.today()}.json')
+    write_player_data(team, f'./data/{path}/selection-{date.today()}.json')

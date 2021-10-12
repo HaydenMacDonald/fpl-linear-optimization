@@ -124,6 +124,6 @@ def clean_player_data(data):
                             history = history,
                             history_past = history_past))
 
-    write_player_data(players, f'.\data\cleaned\players-{date.today()}.json')
+    write_player_data(players, f'./data/cleaned/players-{date.today()}.json')
 
     return players

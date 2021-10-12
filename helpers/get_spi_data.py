@@ -5,7 +5,7 @@ import os
 def get_spi_data():
 
     ## Target data file
-    data_file = f'.\data\soccer-spi-matches\spi_matches-{date.today()}.csv'
+    data_file = f'./data/soccer-spi-matches/spi_matches-{date.today()}.csv'
 
     ## If data doesn't exist, get it
     if not os.path.isfile(data_file):

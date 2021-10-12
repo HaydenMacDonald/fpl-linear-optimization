@@ -10,10 +10,10 @@ from helpers.save_team_selection import save_team_selection
 def transfer_optimization(budget_now, analysis):
 
     ## Current team selection file path
-    current_team_file = f'.\data\selections\selection-{date.today()}.json'
+    current_team_file = f'./data/selections/selection-{date.today()}.json'
 
     ## Player data file path
-    player_data_file = f'.\data\cleaned\players-{date.today()}.json';
+    player_data_file = f'./data/cleaned/players-{date.today()}.json';
 
     ## If player data from today cannot be found, return error
     if not os.path.isfile(player_data_file):
@@ -23,7 +23,7 @@ def transfer_optimization(budget_now, analysis):
     if not os.path.isfile(current_team_file):
 
         ## Find the most recently created/modified file
-        files = glob.glob('.\data\selections\*')
+        files = glob.glob('./data/selections/*')
         latest_file = max(files, key=os.path.getctime) 
 
         ## and assign to current_team_file   
