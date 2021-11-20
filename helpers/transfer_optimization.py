@@ -7,7 +7,7 @@ import json
 from helpers.transfers import TransferOptimiser, MultiHorizonTransferOptimiser
 from helpers.save_team_selection import save_team_selection
 
-def transfer_optimization(budget_now, analysis):
+def transfer_optimization(analysis, budget_now, free_transfers):
 
     ## Current team selection file path
     current_team_file = f'./data/selections/selection-{date.today()}.json'
@@ -52,7 +52,7 @@ def transfer_optimization(budget_now, analysis):
         ## Introduce one week transfer method
         if analysis == "transfer":
 
-            opt = TransferOptimiser(expected_scores, buy_prices, sell_prices, positions, clubs)
+            opt = TransferOptimiser(free_transfers, expected_scores, buy_prices, sell_prices, positions, clubs)
 
             transfer_in_decisions, transfer_out_decisions, starters, sub_decisions, captain_decisions = opt.solve(current_squad_indices, budget_now=budget_now, sub_factor=0.2)
 
@@ -67,14 +67,21 @@ def transfer_optimization(budget_now, analysis):
             print("First Team:")
             for i in range(len(starters)):
                 if starters[i].value() == 1:
-                    print("{}{}".format(names[i], "*" if captain_decisions[i].value() == 1 else ""))
+                    print("{}{}, Expected Score: {}".format(names[i], "*" if captain_decisions[i].value() == 1 else "", expected_scores[i]))
                     player_indices.append(i)
             print()
             print("Subs:")
             for i in range(len(sub_decisions)):
                 if sub_decisions[i].value() == 1:
-                    print(names[i])
+                    print(f"{names[i]}, Expected Score: {expected_scores[i]}")
                     player_indices.append(i)
+            
+            print()
+            total_points = 0
+            for i in range(len(transfer_in_decisions)):
+                if starters[i].value() == 1 or sub_decisions[i].value() == 1:
+                    total_points += expected_scores[i]
+            print(f"Total expected score = {total_points}")
 
             ## Save team selection
             save_team_selection("transfers", players, starters, sub_decisions, codes, names, expected_scores, clubs, positions, buy_prices)

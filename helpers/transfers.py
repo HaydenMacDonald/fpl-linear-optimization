@@ -17,7 +17,8 @@ def get_decision_array(name, length):
 
 
 class TransferOptimiser:
-    def __init__(self, expected_scores, buy_prices, sell_prices, positions, clubs):
+    def __init__(self, free_transfers, expected_scores, buy_prices, sell_prices, positions, clubs):
+        self.free_transfers = free_transfers
         self.expected_scores = expected_scores
         self.buy_prices = buy_prices
         self.sell_prices = sell_prices
@@ -43,8 +44,8 @@ class TransferOptimiser:
         return decisions
 
     def apply_transfer_constraints(self, model, transfer_in_decisions_free, transfer_in_decisions, transfer_out_decisions, budget_now):
-        # only 1 free transfer
-        model += sum(transfer_in_decisions_free) <= 1
+        # Free transfer
+        model += sum(transfer_in_decisions_free) <= self.free_transfers
 
         # budget constraint
         transfer_in_cost = sum(transfer_in_decisions * self.buy_prices)
@@ -77,6 +78,7 @@ class TransferOptimiser:
         status = model.solve()
 
         print("Solver status: {}".format(status))
+        print("Total expected score = {}".format(model.objective.value()))
 
         return transfer_in_decisions, transfer_out_decisions, starters, sub_decisions, captain_decisions
 

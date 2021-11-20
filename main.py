@@ -7,7 +7,7 @@ from helpers.select_squad import select_squad
 from helpers.transfer_optimization import transfer_optimization
 from datetime import date
 
-def main(analysis, season, budget):
+def main(analysis, season, budget, free_transfers):
 
     ## Get SPI Match data (local or remote)
     # spi_data = get_spi_data()
@@ -28,9 +28,13 @@ def main(analysis, season, budget):
         ## Check for budget variable type
         if budget is not None and isinstance(budget, str):
             budget = float(budget)
+
+        ## Check for free_transfers variable
+        if free_transfers is not None and isinstance(free_transfers, str):
+            free_transfers = float(free_transfers)
         
         ## Run a transfer optimization analysis
-        transfer_optimization(budget, analysis)
+        transfer_optimization(analysis, budget, free_transfers)
 
 
 if __name__ == "__main__":
@@ -47,6 +51,9 @@ if __name__ == "__main__":
     ## Add argument to control whether to use previous season's total_points or current season's form as the expected_scores value
     parser.add_argument('--budget', metavar = 'path', required = False, help = 'Current budget leftover by a current squad selection')
 
+    ## Add argument to control for the number of free transfers available at the time of analysis
+    parser.add_argument('--free_transfers', metavar = 'path', required = False, help = 'Current number of free transfers available')
+
     ## Parse arguments and input into main()
     args = parser.parse_args()
-    main(analysis = args.analysis, season = args.season, budget = args.budget)
+    main(analysis = args.analysis, season = args.season, budget = args.budget, free_transfers = args.free_transfers)

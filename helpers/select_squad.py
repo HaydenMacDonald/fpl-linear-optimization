@@ -20,6 +20,7 @@ def select_squad(players, season):
         expected_scores = pd.Series([ x[0].get('total_points') for x in df['history_past']])
     elif season == 'current':
         expected_scores = df['ep_next']
+        # expected_scores = df['total_points']
 
     ## Extract columns as series
     prices = df["price"]
