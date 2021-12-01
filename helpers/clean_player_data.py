@@ -91,7 +91,12 @@ def clean_player_data(data):
             player_fixtures = player['fixtures']
             for game in player_fixtures:
                 match = {}
-                match = {"event_name": game['event_name'], "is_home": game['is_home'], "difficulty": game['difficulty']}
+                if game.get('event_name') is not None: 
+                    match["event_name"] = game['event_name']
+                if game['is_home'] is not None:
+                    match["is_home"] = game['is_home']
+                if game['difficulty'] is not None:
+                    match["difficulty"] = game['difficulty']
                 fixtures.append(match.copy())
 
         ## Historical matches this season
