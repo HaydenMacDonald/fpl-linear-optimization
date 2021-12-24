@@ -55,8 +55,8 @@ def select_team(expected_scores, prices, positions, clubs, total_budget=100, sub
 
     model += sum(decisions) == 11  # total team size
     model += sum(captain_decisions) == 1  # 1 captain
-    
-    for i in range(num_players):  
+
+    for i in range(num_players):
         model += (decisions[i] - captain_decisions[i]) >= 0  # captain must also be on team
         model += (decisions[i] + sub_decisions[i]) <= 1  # subs must not be on team
 
