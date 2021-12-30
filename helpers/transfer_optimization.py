@@ -1,19 +1,20 @@
 import pandas as pd
 import numpy as np
-from datetime import date
+import datetime
 import os
 import glob
 import json
+import re
 from helpers.transfers import TransferOptimiser, MultiHorizonTransferOptimiser
 from helpers.save_team_selection import save_team_selection
 
 def transfer_optimization(analysis, budget_now, free_transfers):
 
     ## Current team selection file path
-    current_team_file = f'./data/selections/selection-{date.today()}.json'
+    current_team_file = f'./data/selections/selection-{datetime.date.today()}.json'
 
     ## Player data file path
-    player_data_file = f'./data/cleaned/players-{date.today()}.json';
+    player_data_file = f'./data/cleaned/players-{datetime.date.today()}.json';
 
     ## If player data from today cannot be found, return error
     if not os.path.isfile(player_data_file):
@@ -24,10 +25,21 @@ def transfer_optimization(analysis, budget_now, free_transfers):
 
         ## Find the most recently created/modified file
         files = glob.glob('./data/selections/*')
-        latest_file = max(files, key=os.path.getctime) 
+
+        ## Get dates from filenames and filter out None
+        dates = [get_date_from_filename(file) for file in files]
+        dates = [d for d in dates if d is not None]
+
+        ## Get max date
+        last_date = max(dates)
+
+        ## Use last_date to identify most recent team file
+        last_date = last_date.strftime('%Y-%m-%d')
+        latest_file = [file for file in files if last_date in file].pop()
 
         ## and assign to current_team_file   
         current_team_file = latest_file
+
 
     ## Load player and current squad data
     with open(player_data_file) as player_data, open(current_team_file) as current_team_data:
@@ -107,3 +119,20 @@ def transfer_optimization(analysis, budget_now, free_transfers):
             #             print("Transferred in: {} {} {}".format(names[i], buy_prices[i], multi_score_forecast.values.T[week][i]))
             #         if transfer_out_decisions[week][i].value() == 1:
             #             print("Transferred out: {} {} {}".format(names[i], sell_prices[i], multi_score_forecast.values.T[week][i]))
+
+def get_date_from_filename(filename):
+    ## Date pattern
+    date_pattern = re.compile(r'\b(\d{4})-(\d{2})-(\d{2})\b')
+
+    ## Search for pattern in filename
+    matched = date_pattern.search(filename)
+    
+    ## If no match, return None
+    if not matched:
+        return None
+    
+    ## Else extract month, day, year
+    y, m, d = map(int, matched.groups())
+    
+    ## Return datetime object using year, month, day
+    return datetime.date(y, m, d)
