@@ -26,4 +26,4 @@ jobs:
           AUTH_TOKEN: ${{ secrets.BEEMINDER_AUTH_TOKEN }}
           GOAL: python
           TARGET_LANGS: Python
-          REPO_LANGS: ${{ steps.linguist.outputs.data }}
+          REPO_LANGS: ${{ steps.enry.outputs.languages }}
