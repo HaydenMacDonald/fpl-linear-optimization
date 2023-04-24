@@ -12,7 +12,7 @@
         "code":206325,
         "name":"Zinchenko",
         "expected_score":1,
-        "rank":"player",
+        "rank":"sub",
         "club":3,
         "position":2,
         "buy_price":5.2
@@ -54,15 +54,6 @@
         "buy_price":4.5
     },
     {
-        "code":144485,
-        "name":"Toney",
-        "expected_score":4,
-        "rank":"player",
-        "club":94,
-        "position":4,
-        "buy_price":7.7
-    },
-    {
         "code":172850,
         "name":"Chilwell",
         "expected_score":0,
@@ -84,19 +75,10 @@
         "code":221399,
         "name":"Harrison",
         "expected_score":3,
-        "rank":"sub",
+        "rank":"player",
         "club":2,
         "position":3,
         "buy_price":5.7
-    },
-    {
-        "code":443967,
-        "name":"Firpo",
-        "expected_score":0,
-        "rank":"sub",
-        "club":2,
-        "position":2,
-        "buy_price":4.5
     },
     {
         "code":97032,
@@ -115,6 +97,24 @@
         "club":14,
         "position":3,
         "buy_price":12.8
+    },
+    {
+        "code":461358,
+        "name":"\u00c1lvarez",
+        "expected_score":0,
+        "rank":"sub",
+        "club":43,
+        "position":4,
+        "buy_price":6.0
+    },
+    {
+        "code":77794,
+        "name":"Trippier",
+        "expected_score":4,
+        "rank":"player",
+        "club":4,
+        "position":2,
+        "buy_price":6.2
     },
     {
         "code":40383,
