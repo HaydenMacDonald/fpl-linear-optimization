@@ -2,9 +2,9 @@ from datetime import date
 from helpers.write_player_data import write_player_data
 
 def clean_player_data(data):
-    
+
     players = []
-    
+
     for player in data:
 
         ## Extract player code
@@ -42,6 +42,11 @@ def clean_player_data(data):
             price = player['now_cost'] / 10
         else:
             price = 100
+
+        if player['selected_by_percent'] is not None:
+            selected_by_percent = player['selected_by_percent']
+        else:
+            selected_by_percent = 0.0
 
         ## Chance of playing next round
         if player['chance_of_playing_next_round'] is not None:
@@ -91,7 +96,7 @@ def clean_player_data(data):
             player_fixtures = player['fixtures']
             for game in player_fixtures:
                 match = {}
-                if game.get('event_name') is not None: 
+                if game.get('event_name') is not None:
                     match["event_name"] = game['event_name']
                 if game['is_home'] is not None:
                     match["is_home"] = game['is_home']
@@ -102,7 +107,7 @@ def clean_player_data(data):
         ## Historical matches this season
         if player['history'] is not None:
             history = player['history']
-        else: 
+        else:
             history = []
 
         ## Historical matches in past seasons
@@ -110,20 +115,21 @@ def clean_player_data(data):
             history_past = [d for d in player['history_past'] if d['season_name'] == '2020/21']
         else:
             history_past = [dict(season_name = '2020/21', total_points = 0)]
-        
+
         ## Append data to batch list
-        players.append(dict(player_code = player_code, 
-                            web_name = web_name, 
-                            total_points = total_points, 
-                            team_code = team_code, 
-                            element_type = element_type, 
-                            price = price, 
-                            form = float(form), 
-                            points_per_game = float(points_per_game), 
-                            ict_rank = ict_rank, 
-                            ep_next = float(ep_next), 
-                            ep_this = float(ep_this), 
-                            chance_of_playing_next_round = chance_of_playing_next_round, 
+        players.append(dict(player_code = player_code,
+                            web_name = web_name,
+                            total_points = total_points,
+                            team_code = team_code,
+                            element_type = element_type,
+                            price = price,
+                            selected_by_percent = float(selected_by_percent),
+                            form = float(form),
+                            points_per_game = float(points_per_game),
+                            ict_rank = ict_rank,
+                            ep_next = float(ep_next),
+                            ep_this = float(ep_this),
+                            chance_of_playing_next_round = chance_of_playing_next_round,
                             chance_of_playing_this_round = chance_of_playing_this_round,
                             fixtures = fixtures,
                             history = history,
