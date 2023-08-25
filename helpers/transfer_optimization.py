@@ -51,7 +51,7 @@ def transfer_optimization(analysis, budget_now, free_transfers):
         codes = [player['player_code'] for player in players]
         clubs = [player['team_code'] for player in players]
         positions = [player['element_type'] for player in players]
-        expected_scores = [player['selected_by_percent'] for player in players]
+        expected_scores = [player['ep_next'] for player in players]
 
         ## Parse price data
         buy_prices = [player.get('price') for player in players]
