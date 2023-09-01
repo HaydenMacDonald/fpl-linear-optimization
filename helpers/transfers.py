@@ -68,7 +68,7 @@ class TransferOptimiser:
         starters = next_week_squad - sub_decisions
 
         # points penalty for additional transfers
-        transfer_penalty = sum(transfer_in_decisions_paid) * 8
+        transfer_penalty = sum(transfer_in_decisions_paid) * 12
 
         self.apply_transfer_constraints(model, transfer_in_decisions_free, transfer_in_decisions,transfer_out_decisions, budget_now)
         self.apply_formation_constraints(model, squad=next_week_squad, starters=starters, subs=sub_decisions, captains=captain_decisions)
