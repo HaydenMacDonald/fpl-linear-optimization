@@ -9,7 +9,7 @@
       "buy_price":4.8
   },
   {
-      "code":223340,
+      "code":85971,
       "name":"Saka",
       "expected_score":6,
       "rank":"player",
@@ -126,7 +126,7 @@
     "buy_price":6.5
 },
 {
-    "code": 220566,
+    "code": 232826,
     "name": "Rodrigo"
 }
 ]
