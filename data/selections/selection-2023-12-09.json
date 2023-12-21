@@ -1,7 +1,7 @@
 [
   {
-      "code":223340,
-      "name":"Saka",
+      "code":85971,
+      "name":"Son",
       "expected_score":7,
       "rank":"player",
       "club":3,
@@ -117,8 +117,8 @@
       "buy_price":6.1
   },
   {
-      "code":77794,
-      "name":"Trippier",
+      "code":231065,
+      "name":"Pinnock",
       "expected_score":4,
       "rank":"sub",
       "club":4,
