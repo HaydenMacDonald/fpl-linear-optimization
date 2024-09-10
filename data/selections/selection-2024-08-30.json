@@ -27,8 +27,8 @@
       "buy_price":5.5
   },
   {
-      "code":50175,
-      "name":"Welbeck",
+      "code":178301,
+      "name":"Watkins",
       "expected_score":9,
       "rank":"player",
       "club":36,
@@ -63,8 +63,8 @@
       "buy_price":4.0
   },
   {
-      "code":244731,
-      "name":"Luis D\u00edaz",
+      "code":157668,
+      "name":"Winks",
       "expected_score":9,
       "rank":"player",
       "club":14,
