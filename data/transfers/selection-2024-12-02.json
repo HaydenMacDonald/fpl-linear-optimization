@@ -27,22 +27,22 @@
         "buy_price":6.0
     },
     {
-        "code":178301,
-        "name":"Watkins",
-        "expected_score":3,
-        "rank":"player",
-        "club":7,
+        "code":50175,
+        "name":"Welbeck",
+        "expected_score":2,
+        "rank":"sub",
+        "club":36,
         "position":4,
-        "buy_price":9.0
+        "buy_price":6.0
     },
     {
-        "code":222683,
-        "name":"Kluivert",
-        "expected_score":9,
+        "code":463067,
+        "name":"Georginio",
+        "expected_score":3,
         "rank":"player",
-        "club":91,
+        "club":36,
         "position":3,
-        "buy_price":5.3
+        "buy_price":5.6
     },
     {
         "code":244851,
@@ -102,7 +102,7 @@
         "code":60689,
         "name":"Wood",
         "expected_score":3,
-        "rank":"sub",
+        "rank":"player",
         "club":17,
         "position":4,
         "buy_price":6.6
@@ -117,13 +117,13 @@
         "buy_price":4.1
     },
     {
-        "code":214590,
-        "name":"Wan-Bissaka",
-        "expected_score":9,
+        "code":109533,
+        "name":"Emerson",
+        "expected_score":6,
         "rank":"player",
         "club":21,
         "position":2,
-        "buy_price":4.5
+        "buy_price":4.4
     },
     {
         "code":430871,
