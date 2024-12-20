@@ -37,7 +37,7 @@ def transfer_optimization(analysis, budget_now, free_transfers):
         last_date = last_date.strftime('%Y-%m-%d')
         latest_file = [file for file in files if last_date in file].pop()
 
-        ## and assign to current_team_file   
+        ## and assign to current_team_file
         current_team_file = latest_file
 
 
@@ -60,7 +60,7 @@ def transfer_optimization(analysis, budget_now, free_transfers):
         # Parse current squad ids and indices in player data file
         current_squad_ids = [player.get('code') for player in current_team]
         current_squad_indices = [i for i, player in enumerate(players) if player.get('player_code') in current_squad_ids]
-        
+
         ## Introduce one week transfer method
         if analysis == "transfer":
 
@@ -87,7 +87,7 @@ def transfer_optimization(analysis, budget_now, free_transfers):
                 if sub_decisions[i].value() == 1:
                     print(f"{names[i]}, Expected Score: {expected_scores[i]}")
                     player_indices.append(i)
-            
+
             print()
             total_points = 0
             for i in range(len(transfer_in_decisions)):
@@ -126,13 +126,13 @@ def get_date_from_filename(filename):
 
     ## Search for pattern in filename
     matched = date_pattern.search(filename)
-    
+
     ## If no match, return None
     if not matched:
         return None
-    
+
     ## Else extract month, day, year
     y, m, d = map(int, matched.groups())
-    
+
     ## Return datetime object using year, month, day
     return datetime.date(y, m, d)

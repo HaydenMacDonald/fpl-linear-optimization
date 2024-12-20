@@ -1,0 +1,112 @@
+[
+    {
+        "code": 116216,
+        "name": "Trossard",
+        "expected_score": 132,
+        "rank": "player",
+        "club": 36,
+        "position": 3,
+        "buy_price": 7.1
+    },
+    {
+        "code": 111234,
+        "name": "Pickford",
+        "expected_score": 50,
+        "rank": "player",
+        "club": 11,
+        "position": 1,
+        "buy_price": 4.5
+    },
+    {
+        "code": 17761,
+        "name": "Tarkowski",
+        "expected_score": 68,
+        "rank": "sub",
+        "club": 11,
+        "position": 2,
+        "buy_price": 4.4
+    },
+    {
+        "code": 156689,
+        "name": "Andreas",
+        "expected_score": 97,
+        "rank": "player",
+        "club": 54,
+        "position": 3,
+        "buy_price": 4.6
+    },
+    {
+        "code": 223094,
+        "name": "Haaland",
+        "expected_score": 178,
+        "rank": "player",
+        "club": 43,
+        "position": 4,
+        "buy_price": 12.2
+    },
+    {
+        "code": 77794,
+        "name": "Trippier",
+        "expected_score": 108,
+        "rank": "player",
+        "club": 4,
+        "position": 2,
+        "buy_price": 5.9
+    },
+    {
+        "code": 179018,
+        "name": "Almir\u00f3n",
+        "expected_score": 115,
+        "rank": "player",
+        "club": 4,
+        "position": 3,
+        "buy_price": 5.8
+    },
+    {
+        "code": 215136,
+        "name": "N.Williams",
+        "expected_score": 55,
+        "rank": "player",
+        "club": 17,
+        "position": 2,
+        "buy_price": 4.0
+    },
+    {
+        "code": 78830,
+        "name": "Kane",
+        "expected_score": 180,
+        "rank": "player",
+        "club": 6,
+        "position": 4,
+        "buy_price": 11.6
+    },
+    {
+        "code": 55459,
+        "name": "Cresswell",
+        "expected_score": 76,
+        "rank": "sub",
+        "club": 21,
+        "position": 2,
+        "buy_price": 4.8
+    },
+    {
+        "code": 172780,
+        "name": "Maddison"
+    },
+    {
+        "code": 209244,
+        "name": "Foden"
+    },
+    {
+        "code": 45034,
+        "name": "Peri\u0161i\u0107"
+    },
+    {
+        "code": 205651,
+        "name": "Jesus"
+    },
+    {
+        "code": 154561,
+        "name": "Raya"
+    }
+]
