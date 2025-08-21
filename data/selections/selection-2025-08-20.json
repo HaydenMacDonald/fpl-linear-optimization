@@ -1,7 +1,7 @@
 [
     {
-        "code":98980,
-        "name":"Martinez",
+        "code":111234,
+        "name":"Pickford",
         "expected_score":186,
         "rank":"player",
         "club":7,
@@ -9,8 +9,8 @@
         "buy_price":5.0
     },
     {
-        "code":178301,
-        "name":"Watkins",
+        "code":121160,
+        "name":"Ederson",
         "expected_score":168,
         "rank":"player",
         "club":7,
@@ -18,8 +18,8 @@
         "buy_price":9.0
     },
     {
-        "code":83299,
-        "name":"Dunk",
+        "code":226597,
+        "name":"Gabriel",
         "expected_score":130,
         "rank":"sub",
         "club":36,
@@ -27,8 +27,8 @@
         "buy_price":4.5
     },
     {
-        "code":221399,
-        "name":"Harrison",
+        "code":216094,
+        "name":"Frimpong",
         "expected_score":160,
         "rank":"sub",
         "club":2,
@@ -36,8 +36,8 @@
         "buy_price":5.5
     },
     {
-        "code":106617,
-        "name":"Bamford",
+        "code":448514,
+        "name":"Ait-Nouri",
         "expected_score":194,
         "rank":"player",
         "club":2,
@@ -45,8 +45,8 @@
         "buy_price":5.0
     },
     {
-        "code":177815,
-        "name":"Calvert-Lewin",
+        "code":477424,
+        "name":"Gvardiol",
         "expected_score":165,
         "rank":"player",
         "club":2,
@@ -54,8 +54,8 @@
         "buy_price":5.5
     },
     {
-        "code":122798,
-        "name":"Robertson",
+        "code":487838,
+        "name":"Hall",
         "expected_score":161,
         "rank":"player",
         "club":14,
@@ -63,8 +63,8 @@
         "buy_price":6.0
     },
     {
-        "code":118748,
-        "name":"M.Salah",
+        "code":244850,
+        "name":"Rogers",
         "expected_score":231,
         "rank":"player",
         "club":14,
@@ -72,8 +72,8 @@
         "buy_price":14.5
     },
     {
-        "code":121160,
-        "name":"Ederson M.",
+        "code":222683,
+        "name":"Kluivert",
         "expected_score":160,
         "rank":"sub",
         "club":43,
@@ -81,8 +81,8 @@
         "buy_price":5.5
     },
     {
-        "code":171314,
-        "name":"R\u00faben",
+        "code":437730,
+        "name":"Semenyo",
         "expected_score":142,
         "rank":"player",
         "club":43,
@@ -90,8 +90,8 @@
         "buy_price":5.5
     },
     {
-        "code":141746,
-        "name":"B.Fernandes",
+        "code":513418,
+        "name":"Schade",
         "expected_score":244,
         "rank":"player",
         "club":1,
@@ -99,8 +99,8 @@
         "buy_price":9.0
     },
     {
-        "code":176297,
-        "name":"Rashford",
+        "code":449434,
+        "name":"Elanga",
         "expected_score":174,
         "rank":"player",
         "club":1,
@@ -108,8 +108,8 @@
         "buy_price":7.0
     },
     {
-        "code":169359,
-        "name":"Targett",
+        "code":219847,
+        "name":"Havertz",
         "expected_score":138,
         "rank":"sub",
         "club":4,
@@ -117,8 +117,8 @@
         "buy_price":4.0
     },
     {
-        "code":85971,
-        "name":"Son",
+        "code":178186,
+        "name":"Bowen",
         "expected_score":228,
         "rank":"player",
         "club":6,
@@ -126,8 +126,8 @@
         "buy_price":8.5
     },
     {
-        "code":214590,
-        "name":"Wan-Bissaka",
+        "code":224117,
+        "name":"Gyokeres",
         "expected_score":144,
         "rank":"player",
         "club":21,
